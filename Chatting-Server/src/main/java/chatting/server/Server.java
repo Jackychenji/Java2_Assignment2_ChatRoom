@@ -16,35 +16,36 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class Server extends Application {
-    private static final Logger LOG = LoggerFactory.getLogger(Server.class);
-    private Initializable controller;
+  private static final Logger LOG = LoggerFactory.getLogger(Server.class);
+  private Initializable controller;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+  public static void main(String[] args) {
+    launch(args);
+  }
 
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-        LOG.trace("Start");
-        String fxml = "/server.fxml";
-        FXMLLoader loader = new FXMLLoader();
-        InputStream in = getClass().getResourceAsStream(fxml);
-        loader.setBuilderFactory(new JavaFXBuilderFactory());
-        loader.setLocation(getClass().getResource(fxml));
-        Parent root = loader.load(in);
-        controller = loader.getController();
-        if (controller instanceof ServerController)
-            ((ServerController) controller).setServer(this);
-        primaryStage.setTitle("Server");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.sizeToScene();
-        primaryStage.centerOnScreen();
-        primaryStage.show();
-    }
+  @Override
+  public void start(Stage primaryStage) throws IOException {
+    LOG.trace("Start");
+    String fxml = "/server.fxml";
+    FXMLLoader loader = new FXMLLoader();
+    InputStream in = getClass().getResourceAsStream(fxml);
+    loader.setBuilderFactory(new JavaFXBuilderFactory());
+    loader.setLocation(getClass().getResource(fxml));
+    Parent root = loader.load(in);
+    controller = loader.getController();
+    if (controller instanceof ServerController)
+      ((ServerController) controller).setServer(this);
+    primaryStage.setTitle("Server");
+    primaryStage.setScene(new Scene(root));
+    primaryStage.sizeToScene();
+    primaryStage.centerOnScreen();
+    primaryStage.show();
+  }
 
-    @Override
-    public void stop() {
-        if (controller instanceof ServerController){
-            ((ServerController) controller).exit();}
+  @Override
+  public void stop() {
+    if (controller instanceof ServerController) {
+      ((ServerController) controller).exit();
     }
+  }
 }
