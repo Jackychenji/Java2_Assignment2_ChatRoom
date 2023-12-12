@@ -51,8 +51,8 @@
                 <padding>
                     <Insets left="10" top="10" right="10" bottom="10"/>
                 </padding>
-                <Button fx:id="clearButton" onAction="#onClearButtonClick"
-                        text="清空消息" maxHeight="Infinity"/>
+                <Button fx:id="InitializeGroupChat" onAction="#onGroupButtonClick"
+                        text="新建群聊" maxHeight="Infinity"/>
                 <TextArea fx:id="msgTextArea" prefRowCount="2"/>
                 <Button fx:id="sendButton" onAction="#onClickSendButton"
                         text="发送消息" maxHeight="Infinity"/>
