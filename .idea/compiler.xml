@@ -11,11 +11,5 @@
         <module name="Chatting-Share" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Chatting" target="1.8" />
-      <module name="Chatting-Client" target="1.8" />
-      <module name="Chatting-Server" target="1.8" />
-      <module name="Chatting-Share" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
